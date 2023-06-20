@@ -14,7 +14,7 @@ class ServeCommand extends Command
 
     protected function configure()
     {
-        $this->setDescription('Start the SimplyPHP development server');
+        $this->setDescription('Start development server');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
