@@ -133,6 +133,7 @@
     >
       <div
         class="col-4 d-flex align-items-center justify-content-start gap-3 text-white"
+        style="height: 48px;"
       >
         <img
           src="./src/assets/logo.png"
@@ -141,7 +142,7 @@
           class="rounded-circle"
           style="position: absolute; left: 0; z-index: 10"
         />
-        <h1 class="fw-bold fs-2" style="margin-left: 7rem">
+        <h1 class="fw-bold fs-2 mt-1" style="margin-left: 7rem">
           MUNICIPALITY OF RIZAL
         </h1>
       </div>
@@ -220,9 +221,11 @@
                   <label for="">Contact Number:</label>
                   <input
                     required
-                    type="number"
+                    type="text"
                     class="form-control"
                     name="contact_no"
+                    pattern="\d{11}" 
+                    title="Please enter a 11-digit cellphone number"
                   />
                 </div>
                 <div class="form-group mt-2">

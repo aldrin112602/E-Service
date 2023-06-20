@@ -1,5 +1,6 @@
-
 <?php 
+require_once './config.php';
+require_once './global.php';
 
 function sanitize_input($input_text) {
     $sanitized_text = preg_replace("/[;\'\"\\\\]/", '', $input_text);
@@ -20,6 +21,23 @@ function validate_post_data($post_data) {
     return $sanitized_data;
 }
 
+function validateFullName($fullName) {
+    $fullName = trim($fullName);
+    $words = explode(' ', $fullName);
+    $numWords = count($words);
+    if ($numWords < 2) {
+        return false;
+    }
+    foreach ($words as $word) {
+        if (strlen($word) <= 1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $post = validate_post_data($_POST);
@@ -34,7 +52,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $age = $post['age'];
     $status = $post['status'];
 
-    if(strlen($password) < 6) {
+    if(!validateFullName($fullname)) {
+        echo '
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Fullname is not valid!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+    } elseif(isDataExists("account_registration", "email", "email = '$email'")) {
+        echo '
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Email already exist!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+    } elseif(strlen($password) < 6) {
         echo '
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 Password must atleast have 6 characters!
