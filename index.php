@@ -109,6 +109,21 @@
             >
               <span class="material-symbols-outlined">info</span> About us</a
             >
+            
+            <a
+              class="nav-link d-md-none d-flex align-items-center justify-content-start gap-2 text-success mx-3"
+              href="#"
+            >
+              <span class="material-symbols-outlined">login</span> Login</a
+            >
+            <a
+              class="nav-link d-md-none d-flex align-items-center justify-content-start gap-2 text-success mx-3"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#register"
+            >
+              <span class="material-symbols-outlined">add</span> Register</a
+            >
           </div>
         </div>
       </div>
@@ -130,7 +145,7 @@
           MUNICIPALITY OF RIZAL
         </h1>
       </div>
-      <div class="col-3 text-end px-3">
+      <div class="col-3 text-end d-none d-md-block">
         <a href="#" class="btn btn-trnasparent text-white btn-sm px-3">Login</a>
         <a
           href="javascript:void(0)"
