@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Command\Command;
+
+class ServeCommand extends Command
+{
+    protected static $defaultName = 'start';
+
+    protected function configure()
+    {
+        $this->setDescription('Start the SimplyPHP development server');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $output->writeln('<info>Starting development server at http://localhost:8000....</info>');
+        passthru('php -S localhost:8000 -t ./');
+        return Command::SUCCESS;
+    }
+}
+
+$application = new Application();
+$application->add(new ServeCommand());
+$application->run();
