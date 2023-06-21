@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Municipality of Rizal</title>
+    <title>About us | Municipality of Rizal</title>
     <link rel="icon" href="./src/assets/logo.png" type="image/x-icon" />
 
     <!-- Jquery -->
@@ -85,7 +85,7 @@
         >
           <div class="navbar-nav">
             <a
-              class="nav-link active d-flex align-items-center justify-content-start gap-2 text-success mx-3"
+              class="nav-link d-flex align-items-center justify-content-start gap-2 text-success mx-3"
               href="/"
             >
               <span class="material-symbols-outlined">home</span> Home</a
@@ -104,7 +104,7 @@
               <span class="material-symbols-outlined">call</span> Contact</a
             >
             <a
-              class="nav-link d-flex align-items-center justify-content-start gap-2 text-success mx-3"
+              class="nav-link active d-flex align-items-center justify-content-start gap-2 text-success mx-3"
               href="./about.php"
             >
               <span class="material-symbols-outlined">info</span> About us</a
@@ -159,22 +159,23 @@
     </div>
 
     <div
-      style="
-        min-height: 80vh;
-        background: url(./src/assets/bg-placeholder.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        filter: brightness(90%);
-      "
-      class="w-full d-flex align-items-center justify-content-center"
+      style="min-height: 80vh;"
+      class="w-full"
     >
-      <h1
-        class="text-center p-5 text-white text-shadow box-shadow"
-        style="background: rgba(0, 0, 0, 0.3)"
-      >
-        I-RIZ: E-Services Management Information System for the Municipality of
-        Rizal
-      </h1>
+    <div class="container-fluid">
+      <div class="container p-5">
+        <button class="btn btn-success rounded-0 px-5">MISSION</button>
+        <div class="container-fluid rounded border boder-2 border-success p-4">
+          <p>To provide an enabling environment for the development of agriculture and eco-tourism industry through responsive and efficient governance, empowered communities and sustainable management of natural resources towards a peacful, progressive and resilient municipality</p>
+        </div>
+      </div>
+      <div class="container py-2 p-5">
+        <button class="btn btn-success rounded-0 px-5">VISSION</button>
+        <div class="container-fluid rounded border boder-2 border-success p-4">
+          <p>A model of agricultural and eco-toursim-based economy that is sustainable, peaceful, and progressive with empowered and resilient communities living in a vibrant natural environment</p>
+        </div>
+      </div>
+    </div>
     </div>
 
     <!-- Modal -->

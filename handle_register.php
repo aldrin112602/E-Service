@@ -43,6 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $post = validate_post_data($_POST);
 
     $fullname = $post['fullname'];
+    $uid = uniqid();
     $email = $post['email'];
     $password = $post['password'];
     $contact_no = $post['contact_no'];
@@ -51,6 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $gender = $post['gender'];
     $age = $post['age'];
     $status = $post['status'];
+
 
     if(!validateFullName($fullname)) {
         echo '
@@ -71,6 +73,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         ';
+    } else {
+        // insert data
+        $sql = "INSERT INTO account_registration(fullname, unique_id, email, password, contact_no, address, birthday, gender, age, status) VALUES('$fullname','$uid','$email','$password','$contact_no','$address','$birthday','$gender','$age','$status')";
+        if(mysqli_query($conn, $sql)) {
+            $_SESSION['login'] = true;
+            $_SESSION['unique_id'] = $uid;
+            echo '';
+        } else {
+             echo '
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Failed to insert data, please check database connection!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        ';
+        }
     }
 
 }
