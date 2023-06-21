@@ -1,9 +1,7 @@
-<?php 
+<?php
 
-
-
-function sanitize_input($input_text) {
-    $sanitized_text = preg_replace("/[;\'\"\\\\]/", '', $input_text);
+function sanitize_input( $input_text ) {
+    $sanitized_text = preg_replace( "/[;\'\"\\\\ ]/", '', $input_text);
     return $sanitized_text;
 }
 
@@ -27,4 +25,17 @@ function isDataExists($table, $select, $condition) {
     global $conn;
     $query = "SELECT " . $select . " FROM " . $table . " WHERE " . $condition;
     return ($conn->query($query)->num_rows > 0);
+}
+
+function getRows($condition, $tableName) {
+    global $conn;
+    $sql = "SELECT * FROM $tableName WHERE $condition";
+    $result = $conn->query( $sql );
+    $rows = [];
+    if ( $result && $result->num_rows > 0 ) {
+        while ( $row = $result->fetch_assoc() ) {
+            $rows[] = $row;
+        }
+    }
+    return $rows;
 }

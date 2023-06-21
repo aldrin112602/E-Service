@@ -8,9 +8,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $post['email'];
     $password = $post['password'];
 
-    // check if admin
-    if(isDataExists("user_accounts", "*", "email = '$email' AND password = '$password'")) {
-        
+    $condtion = "email = '$email' AND password = '$password'";
+    if(isDataExists("user_accounts", "*", $condtion)) {
+        foreach(getRows($condtion, "user_accounts") as $row) {
+            $_SESSION['login'] = true;
+            $_SESSION['user_type'] = $row['user_type'];
+            $_SESSION['fullname'] = $row['fullname'];
+            $_SESSION['email'] = $email;
+        }
+
+        echo '';
+
     } else {
         // no records found
         // Invalid email or password

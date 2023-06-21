@@ -81,7 +81,8 @@
                         href="./about.php">
                         <span class="material-symbols-outlined">info</span> About us</a>
 
-                    <a onclick="w3.toggleShow('#login_form')" class="nav-link d-md-none d-flex align-items-center justify-content-start gap-2 text-success mx-3"
+                    <a onclick="w3.toggleShow('#login_form')"
+                        class="nav-link d-md-none d-flex align-items-center justify-content-start gap-2 text-success mx-3"
                         href="#">
                         <span class="material-symbols-outlined">login</span> Login</a>
                     <a class="nav-link d-md-none d-flex align-items-center justify-content-start gap-2 text-success mx-3"
@@ -100,7 +101,8 @@
             </h1>
         </div>
         <div class="col-3 text-end d-none d-md-block">
-            <button onclick="w3.toggleShow('#login_form')" class="btn btn-trnasparent text-white btn-sm px-3">Login</button>
+            <button onclick="w3.toggleShow('#login_form')"
+                class="btn btn-trnasparent text-white btn-sm px-3">Login</button>
             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#register"
                 class="btn btn-light btn-sm px-4">Register</a>
         </div>
@@ -119,16 +121,21 @@
         </h1>
 
         <!-- login form -->
-        <form id="login_form" action="javascript:void(0)" method="POST" class="col-12 shadow-lg col-md-4 bg-light p-4 position-absolute"
+        <form id="login_form" action="javascript:void(0)" method="POST"
+            class="col-12 shadow-lg col-md-4 bg-light p-4 position-absolute"
             style="left: 0; top: 0; height: 100%; display: none;">
             <h1 class="p-2 mt-4 fw-bold fs-4 text-dark" style="border-left: 5px solid darkgreen;">Login Account</h1>
+            <!-- message container -->
+            <div id="msg_container_login"></div>
             <div class="form-group mt-3">
                 <label for="">Email address</label>
-                <input required type="email" class="form-control form-control-md" name="email" placeholder="Your email address">
+                <input required type="email" class="form-control form-control-md" name="email"
+                    placeholder="Your email address">
             </div>
             <div class="form-group mt-3">
                 <label for="">Password</label>
-                <input required type="password" class="form-control form-control-md" name="password" placeholder="Your password">
+                <input required type="password" class="form-control form-control-md" name="password"
+                    placeholder="Your password">
             </div>
             <div class="row py-2">
                 <div class="col">
@@ -144,14 +151,15 @@
                 </div>
             </div>
             <div class="text-center mt-3">
-                <button type="submit" class="btn btn-success px-4">Login</button>
-                <button  type="button" data-bs-toggle="modal" data-bs-target="#register" class="btn btn-dark px-4">Signup</button><br><br>
+                <button type="submit" class="btn btn-success px-4 btn_login">Login</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#register"
+                    class="btn btn-dark px-4">Signup</button><br><br>
                 <p class="fw-bold"> or <br> Signup with: </p>
                 <a href="#" class="text-decoration-none btn btn-primary">
-                  <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
                 </a>
                 <a href="#" class="text-decoration-none btn btn-secondary border">
-                  <i class="fab fa-google" aria-hidden="true"></i>
+                    <i class="fab fa-google" aria-hidden="true"></i>
                 </a>
             </div>
         </form>
@@ -288,6 +296,51 @@
                     }
                 });
         });
+
+
+        $('#login_form').on('submit', function(e) {
+            e.preventDefault();
+            const data = $(this).serialize();
+            btnTrigger(
+                ".btn_login",
+                true,
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Please wait..'
+            );
+
+            axios
+                .post("./handle_login.php", data)
+                .then(function(res) {
+                    btnTrigger(".btn_login", false, "Login");
+                    $("#msg_container_login").html(res.data);
+                    if (res.data == '') {
+                        // Swal.fire(
+                        //     "Congratulations!",
+                        //     "You have successfully login",
+                        //     "success"
+                        // );
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'bottom-start',
+                            showConfirmButton: false,
+                            timer: 5000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Signed in successfully'
+                        })
+                    }
+                })
+                .catch(function(error) {
+                    btnTrigger(".btn_login", false, "Login");
+                    Swal.fire("Something went wrong!", "please try again", "error");
+                });
+        })
 
         function btnTrigger(s, disabled, str) {
             $(s).html(str);
