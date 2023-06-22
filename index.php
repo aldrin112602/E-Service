@@ -1,3 +1,21 @@
+<?php 
+require_once './config.php';
+if(isset($_SESSION['login']) && $_SSION['login']) {
+    switch($_SESSION['user_type']) {
+        case 'admin':
+            header('location: ./admin');
+            break;
+        case 'client':
+            header('location: ./client');
+            break;
+        default:
+            header('location: ./staff');
+            break;
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -313,27 +331,11 @@
                     btnTrigger(".btn_login", false, "Login");
                     $("#msg_container_login").html(res.data);
                     if (res.data == '') {
-                        // Swal.fire(
-                        //     "Congratulations!",
-                        //     "You have successfully login",
-                        //     "success"
-                        // );
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'bottom-start',
-                            showConfirmButton: false,
-                            timer: 5000,
-                            timerProgressBar: true,
-                            didOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
-
-                        Toast.fire({
-                            icon: 'success',
-                            title: 'Signed in successfully'
-                        })
+                        Swal.fire(
+                            "Congratulations!",
+                            "Signed in successfully",
+                            "success"
+                        );
                     }
                 })
                 .catch(function(error) {

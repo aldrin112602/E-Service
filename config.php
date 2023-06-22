@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-// database connection
 $host = 'localhost';
 $user = 'root';
 $password = '';
