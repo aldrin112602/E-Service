@@ -128,9 +128,9 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
 
     <div style="
         min-height: 80vh;
-        background: url(./src/assets/bg-placeholder.jpg);
+        background: url(./src/assets/Munisipyo_Facade.jpg);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 100% 100%;
         filter: brightness(90%);
       " class="w-full d-flex align-items-center justify-content-center position-relative">
         <h1 class="text-center p-5 text-white text-shadow box-shadow" style="background: rgba(0, 0, 0, 0.3)">
