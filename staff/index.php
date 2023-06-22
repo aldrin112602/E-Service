@@ -1,6 +1,6 @@
 <?php 
 require_once '../config.php';
-if(isset($_SESSION['login']) && $_SSION['login']) {
+if(isset($_SESSION['login']) && $_SESSION['login']) {
     switch($_SESSION['user_type']) {
         case 'admin':
             header('location: ../admin');
