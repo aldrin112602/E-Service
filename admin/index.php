@@ -106,26 +106,39 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
                 MUNICIPALITY OF RIZAL
             </h1>
         </div>
-        <div class="col-3 text-end d-none d-md-block">
-            
+        <div class="col-3 text-end text-white d-flex align-items-center justify-content-end">
+            <h6 class="mt-2">
+                <?php echo $_SESSION['fullname'] ?>
+            </h6>
+            <img src="../src/assets/profile-avatar.png" alt="" height="50px" class="rounded-circle">
         </div>
     </div>
 
     <div style="
         min-height: 80vh;
-        background: url(../src/assets/Munisipyo_Facade.jpg);
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        filter: brightness(90%);
-      " class="w-full d-flex align-items-center justify-content-center position-relative">
-        <h1 class="text-center p-5 text-white text-shadow box-shadow" style="background: rgba(0, 0, 0, 0.3)">
-            I-RIZ: E-Services Management Information System for the Municipality of
-            Rizal
-        </h1>
+      " class="container-fluid row">
+        <div class="col-5 col-md-3 p-0">
+            <img src="../src/assets/Munisipyo_Facade.jpg" class="img-fluid">
+            <a class="nav-link active d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
+                <span class="material-symbols-outlined">home</span> Dashboard</a>
+            <a class="nav-link d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
+                <span class="material-symbols-outlined">badge</span> Voters certificate</a>
+            <a class="nav-link d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
+                <span class="material-symbols-outlined">demography</span> PSA</a>
+            <a class="nav-link d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
+                <span class="material-symbols-outlined">camera_rear</span> Burial Assistance</a>
+            <a class="nav-link d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
+                <span class="material-symbols-outlined">diversity_3</span> kasalang Bayan</a>
+            <a class="nav-link d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
+                <span class="material-symbols-outlined">insights</span> Data Analytics</a>
+        </div>
+        <div class="col-6 col-md-9 text-center">
+
+        </div>
     </div>
     <script>
     $(document).ready(function() {
-        
+
     });
     </script>
 </body>
