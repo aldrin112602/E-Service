@@ -86,7 +86,7 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
             <div class="collapse navbar-collapse justify-content-end py-3 px-2" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active d-flex align-items-center justify-content-start gap-2 text-success mx-3"
-                        href="/">
+                        href="./">
                         <span class="material-symbols-outlined">home</span> Home</a>
                     <a class="nav-link d-flex align-items-center justify-content-start gap-2 text-success mx-3"
                         href="#">

@@ -10,7 +10,7 @@ function validateFullName($fullname) {
     }
     
     foreach ($names as $name) {
-        if (!preg_match('/^[A-Za-z]+$/', $name) || strlen(trim($name)) < 1) {
+        if (!preg_match('/^[A-Za-z]+$/', $name) || strlen(trim($name)) <= 1 && count($names) <= 2) {
             return false;
         }
     }
