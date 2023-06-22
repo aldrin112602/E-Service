@@ -132,8 +132,26 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
             <a class="nav-link d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
                 <span class="material-symbols-outlined">insights</span> Data Analytics</a>
         </div>
-        <div class="col-6 col-md-9 text-center">
-
+        <div class="col-6 col-md-9 text-center p-4">
+            <div>
+                <button class="btn btn-success px-5 fs-4">Dashboard</button>
+            </div>
+            <div class="row justify-content-center gap-5 mt-5">
+                <div class="col col-md-4 bg-success text-white p-5 shadow rounded">
+                    <h2>Voter's Certificate 15 Request</h2>
+                </div>
+                <div class="col col-md-4 bg-success text-white p-5 shadow rounded">
+                    <h2>PSA 9 Request</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center gap-5 mt-5">
+                <div class="col col-md-4 bg-success text-white p-5 shadow rounded">
+                    <h2>Kasalang Bayan 6 Request</h2>
+                </div>
+                <div class="col col-md-4 bg-success text-white p-5 shadow rounded">
+                    <h2>Burial Assistance 10 Request</h2>
+                </div>
+            </div>
         </div>
     </div>
     <script>
