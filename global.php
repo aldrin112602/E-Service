@@ -12,7 +12,7 @@ function validate_post_data($post_data) {
         if ($key === 'password') {
             $sanitized_data[$key] = trim($value);
         } elseif (is_string($value)) {
-            $sanitized_data[$key] = trim(sanitize_input($value));
+            $sanitized_data[$key] = $value;
         } else {
             $sanitized_data[$key] = $value;
         }

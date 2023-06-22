@@ -297,6 +297,10 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
                             "You have successfully registered",
                             "success"
                         );
+
+                        setTimeout(() => {
+                            location.reload();
+                        }, 2000);
                     }
                 })
                 .catch(function(error) {
@@ -336,6 +340,9 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
                             "Signed in successfully",
                             "success"
                         );
+                        setTimeout(() => {
+                            location.reload();
+                        }, 2000);
                     }
                 })
                 .catch(function(error) {

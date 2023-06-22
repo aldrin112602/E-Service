@@ -2,15 +2,15 @@
 require_once './config.php';
 require_once './global.php';
 
-function validateFullName($fullName) {
-    $fullName = trim($fullName);
-    $words = explode(' ', $fullName);
-    $numWords = count($words);
-    if ($numWords < 2) {
+function validateFullName($fullname) {
+    $fullname = trim($fullname);
+    $names = explode(' ', $fullname);
+    if (!is_string($fullname) || count($names) < 2) {
         return false;
     }
-    foreach ($words as $word) {
-        if (strlen($word) <= 1) {
+    
+    foreach ($names as $name) {
+        if (!preg_match('/^[A-Za-z]+$/', $name)) {
             return false;
         }
     }
@@ -18,13 +18,14 @@ function validateFullName($fullName) {
 }
 
 
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $post = validate_post_data($_POST);
-    $fullname = ucwords(strtolower($post['fullname']));
-    $email = $post['email'];
-    $password = $post['password'];
-    $contact_no = $post['contact_no'];
-    $address = ucwords(strtolower($post['address']));
+    $fullname = trim(ucwords(strtolower($post['fullname'])));
+    $email = trim($post['email']);
+    $password = trim($post['password']);
+    $contact_no = trim($post['contact_no']);
+    $address = trim(ucwords(strtolower($post['address'])));
     $birthday = $post['birthday'];
     $gender = $post['gender'];
     $age = $post['age'];
