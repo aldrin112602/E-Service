@@ -116,10 +116,10 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
 
     <div style="
         min-height: 80vh;
-      " class="container-fluid row">
+      " class="container-fluid row p-0">
         <div class="col-5 col-md-3 p-0">
             <img src="../src/assets/Munisipyo_Facade.jpg" class="img-fluid">
-            <a class="nav-link active d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
+            <a class="nav-link active bg-secondary text-white d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
                 <span class="material-symbols-outlined">home</span> Dashboard</a>
             <a class="nav-link d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
                 <span class="material-symbols-outlined">badge</span> Voters certificate</a>
@@ -132,23 +132,23 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
             <a class="nav-link d-flex align-items-center justify-content-start gap-2 border fs-5 p-3" href="./">
                 <span class="material-symbols-outlined">insights</span> Data Analytics</a>
         </div>
-        <div class="col-6 col-md-9 text-center p-4">
+        <div class="col-7 col-md-9 text-center p-md-4 p-2">
             <div>
                 <button class="btn btn-success px-5 fs-4">Dashboard</button>
             </div>
             <div class="row justify-content-center gap-5 mt-5">
-                <div class="col col-md-4 bg-success text-white p-5 shadow rounded">
+                <div class="col col-md-4 bg-success text-white p-5 shadow rounded d-flex align-items-center justify-content-center">
                     <h2>Voter's Certificate 15 Request</h2>
                 </div>
-                <div class="col col-md-4 bg-success text-white p-5 shadow rounded">
+                <div class="col col-md-4 bg-success text-white p-5 shadow rounded d-flex align-items-center justify-content-center">
                     <h2>PSA 9 Request</h2>
                 </div>
             </div>
             <div class="row justify-content-center gap-5 mt-5">
-                <div class="col col-md-4 bg-success text-white p-5 shadow rounded">
+                <div class="col col-md-4 bg-success text-white p-5 shadow rounded d-flex align-items-center justify-content-center">
                     <h2>Kasalang Bayan 6 Request</h2>
                 </div>
-                <div class="col col-md-4 bg-success text-white p-5 shadow rounded">
+                <div class="col col-md-4 bg-success text-white p-5 shadow rounded d-flex align-items-center justify-content-center">
                     <h2>Burial Assistance 10 Request</h2>
                 </div>
             </div>
