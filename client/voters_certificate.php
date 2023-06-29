@@ -19,7 +19,7 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Client | Municipality of Rizal</title>
+    <title>Voters Certificate | Municipality of Rizal</title>
     <link rel="icon" href="../src/assets/logo.png" type="image/x-icon" />
     <script src="../src/jquery/jquery.min.js"></script>
     <script src="../src/sweetalert2/sweetalert2.all.min.js"></script>
@@ -112,36 +112,63 @@ if(isset($_SESSION['login']) && $_SESSION['login']) {
         min-height: 80vh;
       " class="container-fluid p-4 text-center">
         <button class="btn btn-lg px-5 py-3 border-0 fw-bold rounded-0 col-4"
-            style="background-image: linear-gradient(white, skyblue);">E-Services</button>
-
-
-        <div class="row justify-content-center mt-4 gap-3">
-            <a href="./voters_certificate.php" style="box-shadow: 1px 0px 5px 9px rgba(255,255,255,0.6) inset;"
-                class="col hover border-0 btn col-md-3 p-4 text-center text-white bg-success">
-                <img src="https://www.mnchamber.com/sites/default/files/inline-images/Voting%20icon%20square.jpg"
-                    class="rounded-circle border" style="height: 150px; width: 150px;" alt="voters certificate"><br><br>
-                <h4>Voters certificate</h4>
-            </a>
-            <a href="#" style="box-shadow: 1px 0px 5px 9px rgba(255,255,255,0.6) inset;"
-                class="col border-0 btn col-md-3 p-4 text-center text-white bg-success ">
-                <img src="https://rsso05.psa.gov.ph/sites/default/files/Philippine_Statistics_Authority.png"
-                    class="rounded-circle border" style="height: 150px; width: 150px;" alt="voters certificate"><br><br>
-                <h4>PSA</h4>
-            </a>
+            style="background-image: linear-gradient(white, skyblue);">Voters Certificate</button><br><br>
+        <h4 class="text-start fw-bold">PROCEDURE:</h4>
+        <div class="row text-white justify-content-around gap-3">
+            <div class="col col-md-2 bg-success p-5">
+                <h5 class="fw-bold">step 1: </h5>
+                <p class="px-2 text-start">
+                    <i class="fa fa-check"></i> Go to the Comelec Office
+                </p>
+            </div>
+            <div class="col col-md-2 bg-success p-5">
+                <h5 class="fw-bold">step 2: </h5>
+                <p class="px-2 text-start">
+                    <i class="fa fa-check"></i> Present ID and state your purpose
+                </p>
+            </div>
+            <div class="col col-md-2 bg-success p-5">
+                <h5 class="fw-bold">step 3: </h5>
+                <p class="px-2 text-start">
+                    <i class="fa fa-check"></i> Provide cash for payment
+                </p>
+            </div>
+            <div class="col col-md-2 bg-success p-5">
+                <h5 class="fw-bold">step 4: </h5>
+                <p class="px-2 text-start">
+                    <i class="fa fa-check"></i> Sign in to log book
+                </p>
+            </div>
         </div>
-        <div class="row justify-content-center mt-4 gap-3">
-            <a href="#" style="box-shadow: 1px 0px 5px 9px rgba(255,255,255,0.6) inset;"
-                class="col border-0 btn col-md-3 p-4 text-center text-white bg-success">
-                <img src="https://cdn0.iconfinder.com/data/icons/valentines-day-4/345/couple-512.png"
-                    class="rounded-circle border" style="height: 150px; width: 150px;" alt="voters certificate"><br><br>
-                <h4>kasalang Bayan</h4>
-            </a>
-            <a href="#" style="box-shadow: 1px 0px 5px 9px rgba(255,255,255,0.6) inset;"
-                class="col border-0 btn col-md-3 p-4 text-center text-white bg-success ">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW_J19b71VOHsJ626yP3ldsurEJWwUX7BwZw&usqp=CAU"
-                    class="rounded-circle border" style="height: 150px; width: 150px;" alt="voters certificate"><br><br>
-                <h4>Burrial Assistance</h4>
-            </a>
+        <br>
+        <div class="row text-start mt-4 gap-3 justify-content-center">
+            <div class="col col-md-4 border border-success p-4 rounded">
+                <h4>Requirements: </h4>
+                <p class="">
+                    <i class="fa fa-check"></i> Valid ID
+                </p>
+                <div class="form-group">
+                    <input type="file" class="form-control">
+                </div>
+                <div class="progress my-2" role="progressbar"
+                    aria-valuemin="0" aria-valuemax="100" style="height: 25px">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">Uploading 75%</div>
+                </div>
+                <div class="text-end my-3">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="reset" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+
+            <div class="col col-md-4 border border-success p-4 rounded position-relative">
+                <h4>Prepare your fees: </h4>
+                <p class="">
+                    <i class="fa fa-check"></i> Certificate - 75.00 <br>
+                    <i class="fa fa-check"></i> Senior and PWD - No fee
+                </p>
+
+                <button class="btn btn-success mt-auto" style="position: absolute; bottom: 20px; right: 20px;">Request Permission Slip</button>
+            </div>
         </div>
     </div>
     <script>
